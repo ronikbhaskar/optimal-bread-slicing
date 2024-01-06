@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+    <title>French Baguette Canvas</title>
+</head>
+<body>
+    <canvas id="baguetteCanvas" width="600" height="400"></canvas>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the canvas element
+            var canvas = document.getElementById("baguetteCanvas");
+            var ctx = canvas.getContext("2d");
+
+            // Load the baguette image
+            var baguetteImage = new Image();
+            baguetteImage.src = "baguette.jpg"; // Replace with the actual path to your baguette image
+
+            baguetteImage.onload = function () {
+                // Draw the baguette image on the canvas
+                ctx.drawImage(baguetteImage, 0, 0, canvas.width, canvas.height);
+
+                // Define the angle (theta) for dotted lines
+                var theta = 45; // Change the angle as needed
+
+                // Draw dotted lines
+                ctx.setLineDash([5, 5]); // Set line dash pattern for dotted lines
+                ctx.strokeStyle = "#000"; // Black color for lines
+                ctx.beginPath();
+                for (var x = 0; x < canvas.width; x += 20) {
+                    ctx.moveTo(x, canvas.height);
+                    ctx.lineTo(x + canvas.height * Math.tan(theta * (Math.PI / 180)), 0);
+                }
+                ctx.stroke();
+
+                // Draw red triangles
+                ctx.fillStyle = "rgba(255, 0, 0, 0.5)"; // Red color with partial transparency
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(canvas.width, 0);
+                ctx.lineTo(0, canvas.height);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(canvas.width, canvas.height);
+                ctx.lineTo(canvas.width, 0);
+                ctx.lineTo(0, canvas.height);
+                ctx.closePath();
+                ctx.fill();
+            };
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <main class="w-full max-w-lg mx-auto mt-10 px-4 py-8 bg-white shadow-md rounded-md dark:bg-gray-800">
+        <h2 class="text-2xl font-semibold text-center text-gray-700 dark:text-white">Optimal Slicing Angle Calculator</h2>
+        <p class="text-center text-gray-500 dark:text-gray-400 mt-2">Enter the dimensions of your object and desired slices
+            to calculate the optimal slicing angle.</p>
+        <form class="mt-8 grid gap-6 grid-cols-2">
+            <div class="grid gap-2"><label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="length">Length</label>
+                <div class="flex items-center"><span class="text-sm text-gray-500 dark:text-gray-400">1</span><input
+                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mx-2"
+                        id="length" min="1" max="100" placeholder="Enter length" type="range"><span
+                        class="text-sm text-gray-500 dark:text-gray-400">100</span></div>
+                <div class="text-center text-gray-500 dark:text-gray-400">Current Value: 50</div>
+            </div>
+            <div class="grid gap-2"><label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="width">Width</label>
+                <div class="flex items-center"><span class="text-sm text-gray-500 dark:text-gray-400">1</span><input
+                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mx-2"
+                        id="width" min="1" max="100" placeholder="Enter width" type="range"><span
+                        class="text-sm text-gray-500 dark:text-gray-400">100</span></div>
+                <div class="text-center text-gray-500 dark:text-gray-400">Current Value: 50</div>
+            </div>
+            <div class="grid gap-2"><label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="slices">Number of Slices</label>
+                <div class="flex items-center"><span class="text-sm text-gray-500 dark:text-gray-400">1</span><input
+                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mx-2"
+                        id="slices" min="1" max="10" placeholder="Enter number of slices" type="range"><span
+                        class="text-sm text-gray-500 dark:text-gray-400">10</span></div>
+                <div class="text-center text-gray-500 dark:text-gray-400">Current Value: 5</div>
+            </div>
+            <div class="grid gap-2"><label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="thickness">Minimum Thickness</label>
+                <div class="flex items-center"><span class="text-sm text-gray-500 dark:text-gray-400">1</span><input
+                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mx-2"
+                        id="thickness" min="1" max="10" placeholder="Enter minimum thickness" type="range"><span
+                        class="text-sm text-gray-500 dark:text-gray-400">10</span></div>
+                <div class="text-center text-gray-500 dark:text-gray-400">Current Value: 5</div>
+            </div><button
+                class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full col-span-2"
+                type="submit">Calculate</button>
+        </form>
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold text-center text-gray-700 dark:text-white">Optimal Slicing Angle</h2>
+            <p class="text-center text-gray-500 dark:text-gray-400 mt-2">The optimal slicing angle based on your inputs is:
+            </p>
+            <div class="flex justify-center items-center mt-4">
+                <div
+                    class="bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-200 rounded-full px-4 py-2 text-lg font-semibold">
+                    45°
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
