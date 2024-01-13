@@ -4,65 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>Optimal Bread Slicing</title>
 </head>
-<body>
-    <main class="w-full max-w-lg mx-auto mt-10 px-4 py-8 bg-white shadow-md rounded-md dark:bg-gray-800">
-        <h2 class="text-2xl font-semibold text-center text-gray-700 dark:text-white">Optimal Slicing Angle Calculator</h2>
-        <p class="text-center text-gray-500 dark:text-gray-400 mt-2">Enter the dimensions of your object and desired slices
-            to calculate the optimal slicing angle.</p>
-        <form class="mt-8 grid gap-6 grid-cols-2">
+<body class="bg-white dark:bg-gray-800">
+    <main class="w-full max-w-lg mx-auto mt-10 px-4 py-8 bg-white dark:bg-gray-800">
+        <h2 class="text-2xl font-semibold text-center text-gray-700 dark:text-white">Optimal Bread Slicing Angle Calculator</h2>
+        <p class="text-center text-gray-500 dark:text-gray-400 mt-2">Based on the <a href="https://ronikbhaskar.github.io/projects/optimal_slicing.pdf" class="text-center text-gray-500 dark:text-gray-400 mt-2 underline">latest in bread-slicing research</a> 
+            from the <a href="https://youtu.be/R6SYxpiGGJ0?si=Ipt-r0DK1HKfHJa3" class="text-center text-gray-500 dark:text-gray-400 mt-2 underline">internet's second-favorite duo</a>. 
+            Please omit units from the inputs.</p>
+        <div class="mt-8 grid gap-6 grid-cols-2">
             <div class="grid gap-2"><label
-                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white"
                     for="length">Length</label>
-                <div class="flex items-center"><span class="text-sm text-gray-500 dark:text-gray-400">1</span><input
-                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mx-2"
-                        id="length" min="1" max="100" placeholder="Enter length" type="range"><span
-                        class="text-sm text-gray-500 dark:text-gray-400">100</span></div>
-                <div class="text-center text-gray-500 dark:text-gray-400">Current Value: 50</div>
+                <div class="flex items-center"><input
+                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 "
+                        id="length" placeholder="Enter length" type="text"></div>
             </div>
             <div class="grid gap-2"><label
-                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white"
                     for="width">Width</label>
-                <div class="flex items-center"><span class="text-sm text-gray-500 dark:text-gray-400">1</span><input
-                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mx-2"
-                        id="width" min="1" max="100" placeholder="Enter width" type="range"><span
-                        class="text-sm text-gray-500 dark:text-gray-400">100</span></div>
-                <div class="text-center text-gray-500 dark:text-gray-400">Current Value: 50</div>
+                    <div class="flex items-center"><input
+                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 "
+                        id="width" placeholder="Enter width" type="text"></div>
             </div>
             <div class="grid gap-2"><label
-                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white"
                     for="slices">Number of Slices</label>
-                <div class="flex items-center"><span class="text-sm text-gray-500 dark:text-gray-400">1</span><input
-                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mx-2"
-                        id="slices" min="1" max="10" placeholder="Enter number of slices" type="range"><span
-                        class="text-sm text-gray-500 dark:text-gray-400">10</span></div>
-                <div class="text-center text-gray-500 dark:text-gray-400">Current Value: 5</div>
+                    <div class="flex items-center"><input
+                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 "
+                        id="slices" placeholder="Enter number of slices" type="text"></div>
             </div>
             <div class="grid gap-2"><label
-                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white"
                     for="thickness">Minimum Thickness</label>
-                <div class="flex items-center"><span class="text-sm text-gray-500 dark:text-gray-400">1</span><input
-                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mx-2"
-                        id="thickness" min="1" max="10" placeholder="Enter minimum thickness" type="range"><span
-                        class="text-sm text-gray-500 dark:text-gray-400">10</span></div>
-                <div class="text-center text-gray-500 dark:text-gray-400">Current Value: 5</div>
+                    <div class="flex items-center"><input
+                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 "
+                        id="thickness" placeholder="Enter min thickness" type="text"></div>
             </div><button
-                class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full col-span-2"
-                type="submit">Calculate</button>
-        </form>
+                class="inline-flex items-center justify-center rounded-md text-l outline outline-2 outline-offset-2 font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full col-span-2 text-gray-700 dark:text-white"
+                onclick="calculateAngle()">Calculate</button>
+        </div>
         <div class="mt-8">
             <h2 class="text-xl font-semibold text-center text-gray-700 dark:text-white">Optimal Slicing Angle</h2>
             <p class="text-center text-gray-500 dark:text-gray-400 mt-2">The optimal slicing angle based on your inputs is:
             </p>
             <div class="flex justify-center items-center mt-4">
                 <div
-                    class="bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-200 rounded-full px-4 py-2 text-lg font-semibold">
-                    45°
+                    class="bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-200 rounded-full px-4 py-2 text-lg font-semibold"
+                    id="angle">
+                    Invalid Inputs
                 </div>
             </div>
         </div>
+        <div class="mt-8">
+            <canvas id="breadCanvas" height="100px"></canvas>
+        </div>
     </main>
+    <script defer>
+        // 45°
+        const canvas = document.getElementById("breadCanvas");
+        const ctx = canvas.getContext("2d");
+        const length = document.getElementById("length");
+        const width = document.getElementById("width");
+        const numSlices = document.getElementById("slices");
+        const thickness = document.getElementById("thickness");
+        const angleDiv = document.getElementById("angle");
+
+        canvas.style.width ='100%';
+        canvas.width = canvas.offsetWidth;
+
+        function invalid() {
+            console.log("invalid inputs");
+            angleDiv.innerText = "Invalid Inputs";
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function displayAngle(angle) {
+            angleDiv.innerText = `${angle}°`;
+        }
+
+        function calculateAngle() {
+            var l, w, h, n;
+
+            try {
+                l = parseFloat(length.value);
+                length.value = l;
+                w = parseFloat(width.value);
+                width.value = w;
+                h = parseFloat(thickness.value);
+                thickness.value = h;
+                n = parseInt(numSlices.value);
+                numSlices.value = n;
+            } catch (error) {
+                return invalid();
+            }
+            
+            /* the impossibility result and some other stuff */
+            if (n > Math.floor(l / h) || n <= 0 || l <= 0 || w <= 0 || h <= 0) {
+                return invalid();
+            }
+
+            const theta = Math.asin((n * h) / Math.sqrt(w * w + l * l)) - Math.atan(- w / l);
+
+            const angle = Math.floor((theta / Math.PI) * 180);
+
+            if (angle > 90 || angle < 0) {
+                return invalid();
+            }
+
+            displayAngle(angle);
+
+            const breadImage = new Image();
+            breadImage.src = "bread.png";
+
+            canvas.height = w * canvas.width / l;
+
+            breadImage.onload = function () {
+                ctx.drawImage(breadImage, 0, 0, canvas.width, canvas.height);
+
+                /* dotted lines */
+                ctx.setLineDash([5, 5]); 
+                ctx.strokeStyle = "#000000";
+
+                const breadWidth = canvas.width - canvas.height / Math.tan(theta);
+
+                ctx.beginPath();
+                for (var x = 0; x <= n; x += 1) {
+                    ctx.moveTo(x * breadWidth / n, canvas.height); 
+                    ctx.lineTo(x * breadWidth / n + canvas.height / Math.tan(theta), 0);
+                }
+                ctx.stroke();
+
+                /* red triangles */
+                ctx.setLineDash([]);
+                ctx.fillStyle = "rgba(255, 0, 0, 0.4)"; 
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(canvas.width - breadWidth, 0);
+                ctx.lineTo(0, canvas.height);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(canvas.width, canvas.height);
+                ctx.lineTo(canvas.width, 0);
+                ctx.lineTo(breadWidth, canvas.height);
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+
+    </script>
 </body>
 </html>
 
